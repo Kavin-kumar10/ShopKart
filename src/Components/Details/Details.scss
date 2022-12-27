@@ -1,0 +1,210 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow-y: scroll;
+}
+
+@mixin flex($justify,$align) {
+display: flex;
+text-align: center;
+justify-content: $justify;
+align-items: $align;
+}
+
+
+.color1{
+    color: var(--tertiary-color);
+}
+.color2{
+    color: var(--secondary-color);
+}
+
+
+//Details
+
+.Details{
+    @include flex(center, center);
+    .product{
+        width: 50vw;
+        height: 100vh;
+        @include flex(center, center);
+        background: white;
+        .back{
+            position: relative;
+            top:-40%;
+            left: -12%;
+            color:white;
+            height: 85px;
+            width:85px;
+            @include flex(center, center);
+            border-radius:100%;
+            &:hover{
+                box-shadow: 0px 0px 40px var(--primary-color);
+            }
+        }
+        img{
+            height: auto;
+            width:500px;
+        }
+    }
+    .product-details{
+        background-color:var(--secondary-color);
+        width: 50vw;
+        height: 100vh;
+        @include flex(center, center);
+        flex-direction: column;
+        text-align: left;
+        
+        //head
+        .head{
+            width:100%;
+            h1{
+                font-size: 30px;
+                color: var(--primary-color);
+            }
+            h2{
+                color: green;
+                font-size: 30px;
+                del{
+                    color: rgb(167, 44, 44);
+                    font-size: 20px;
+                }
+            }
+        }
+        .head>*{
+            padding: 10px 50px;
+        }
+
+        //body
+        .body{
+            h3{
+                color:#beb782;
+                font-size: 18px;
+            }
+            h2{
+                color:var(--primary-color);
+                font-size: 20px;
+                input{
+                    margin: 0px 15px;
+                    padding: 5px;
+                    border-radius: 12px;
+                    width: 150px;
+                }
+            }
+        }
+        .body>*{
+            padding: 12px 55px;
+        }
+        
+        //foot
+
+        .foot{
+            width: 100%;
+            padding: 12px 55px;
+            button{
+                padding: 12px 30px;
+                font-size: 20px;
+                color: white;
+                border-radius: 5px;
+                margin-top: 50px;
+                cursor: pointer;
+                border:none;
+                &:hover{
+                    opacity: 0.7;
+                }
+            }
+            #buy{
+                background: green;
+                transition-duration: 0.5s;
+                font-size: 20px;
+                padding: 8px 20px;
+                border: 1px solid green;
+                &:hover{
+                    background-color: white;
+                    color: green;
+                }
+
+            }
+            #add{
+                margin: 0px 30px;
+                background:white;
+                padding: 8px 10px;
+                border: 1px solid red;
+                color: red;
+                transition-duration: 0.5s;
+                &:hover{
+                    background-color: red;
+                    color: white;
+                }
+                &:hover ~ #cart{
+                    color: white;
+                    margin: 12px;
+                }
+            }
+        }
+        
+    }
+}
+
+@media screen and (max-width:1500px){
+    .Details{
+        .product{
+            .back{
+                left: 0%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1200px){
+    .Details{
+        .product{
+            .back{
+                left: -10%;
+            }
+        }
+        flex-direction: column;
+        .product-details{
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width:700px) {
+    .Details{
+        .product{
+            .back{
+                left: 0%;
+            }
+            img{
+                width: 300px;
+            }
+        }
+        flex-direction: column;
+        .product-details{
+            .head{
+                h1{
+                    font-size: 25px;
+                }
+                
+            }
+            .body{
+                h3{
+                    font-size: 15px;
+                }
+            }
+            .foot{
+                button{
+                    padding: 10px;
+                }
+                #add{
+                    margin: 0px 10px;
+                }
+            }
+        }
+    }
+}

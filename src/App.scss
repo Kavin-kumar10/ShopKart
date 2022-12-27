@@ -1,0 +1,64 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+@mixin flex($justify,$align) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+
+:root{
+    --primary-color:white;
+    --secondary-color:black;
+    --tertiary-color:rgb(117, 117, 117,0.5);
+    --primary-blur:rgb(255, 255, 255,0.5);
+    --secondary-blur:rgb(63, 0, 113,0.2);
+}
+.color1{
+    color: var(--primary-color);
+}
+.color2{
+    color: var(--secondary-color);
+}
+#color1{
+    color: var(--primary-color);
+}
+#color2{
+    color: var(--secondary-color);
+}
+body{
+    overflow: hidden;
+}
+
+
+.App{
+
+    .Main{
+        background:var(--tertiary-color);
+        padding: 3px;
+        display: grid;
+        grid-template-columns: minmax(14rem,20%) 1fr;
+        .Home{
+
+            flex-grow: auto;
+            flex-basis: 80%;
+            height:100vh;
+            overflow-y: scroll;
+        }
+        
+    }
+}
+
+@media screen and (max-width:1020px) {
+    .App{
+        .Main{
+            grid-template-columns: minmax(5rem,10%) 1fr;
+        }
+    }
+    
+}

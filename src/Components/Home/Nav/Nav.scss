@@ -1,0 +1,116 @@
+
+
+
+@mixin flex($justify,$align) {
+    display: flex;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+
+
+.Nav{
+    border-radius: 2rem;
+    flex-basis: 20%;
+    max-width: 20rem;
+    margin: 12px;
+    background-color:var(--secondary-color);
+    max-height:97vh;
+    padding: 1rem;
+    &__body{
+        
+
+        //menu and line
+
+        p{
+            font-size: 20px;
+            color: var(--primary-blur);
+            padding:10px 0px 0px 10px;
+        }
+        .line{
+            height: 1px;
+            width: 100%;
+            margin: 10px;
+            background-color: var(--primary-blur);
+        }
+
+
+        //Catagory
+        &__catagory ul{
+            padding: 0px;
+            & li{
+                list-style: none;
+                padding: 18px 8px;
+                border-radius: 15px;
+                color:var(--primary-blur);
+                font-size: 1.2rem;
+                border: 1px solid transparent;
+                cursor: pointer;
+            }
+            & li:hover{
+                background-color:var(--secondary-blur);
+                border: 1px solid var(--primary-blur);
+            }
+        }
+    }
+    &__body-2{
+        @include flex(space-around, center);
+        flex-direction: column;
+        h1{
+            position: relative;
+            transform: translateX(-14px);
+            font-size: 25px;
+            margin: 0px 0px 50px 0px;
+            color:var(--primary-color);
+        }
+        //Catagory
+        &__catagory ul{
+            padding: 0px;
+            @include flex(center, center);
+                color: var(--secondary-color);
+                flex-direction: column;
+            & li{
+                list-style: none;
+                border-radius: 15px;
+                color:var(--primary-blur);
+                font-size: 2rem;
+                margin: 12px;
+                padding:5px 5px;
+                border: 1px solid transparent;
+                cursor: pointer;
+            }
+            & li:hover{
+                color: var(--secondary-color);
+            }
+        }
+    }
+}
+.Nav>*{
+    padding: 12px;
+}
+
+@media screen and (max-width:1020px) {
+    .Nav{
+        border-radius: 12px;
+        h2{
+            display: none;
+        }
+        &__body{
+            display: none;
+        }
+        &__body-2{
+            display: block;
+        }
+    }
+}
+
+@media screen and (min-width:1020px) {
+    .Nav{
+        &__body-2{
+            display: none;
+        }
+        &__body{
+            display: block;
+        }
+    }
+}
